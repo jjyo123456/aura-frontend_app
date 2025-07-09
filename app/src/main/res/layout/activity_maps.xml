@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsActivity">
+
+    <!-- 🗂 Tab Row at Top -->
+    <LinearLayout
+        android:id="@+id/tabRow"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        map:layout_constraintTop_toTopOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tabHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="🏠"
+            android:textColor="#D50BF8"
+            android:textSize="26sp"
+             />
+
+        <TextView
+            android:id="@+id/tabMap"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="#EAAAF4"
+            android:text="🗺️"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/tabHistory"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="📊"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <!-- 🗺 Google Map Fragment Below Tabs -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        map:layout_constraintTop_toBottomOf="@id/tabRow"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/spinnerCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        map:layout_constraintTop_toBottomOf="@id/tabRow"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:cardCornerRadius="12dp"
+        android:backgroundTint="@android:color/white"
+        android:elevation="8dp">
+
+        <!-- Spinner moved inside CardView -->
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:backgroundTint="@android:color/transparent"
+            android:padding="8dp"
+            android:textAlignment="center"/>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
